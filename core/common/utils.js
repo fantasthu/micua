@@ -1,6 +1,6 @@
 /**
  * 合并多个对象成员
- * @param  {Array} obj2 需要合并的对象
+ * @param  {Array}  objs 需要合并的对象
  * @return {Object}      合并过后的对象
  */
 exports.merge = function(...objs) {

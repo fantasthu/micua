@@ -41,7 +41,7 @@ const config = {
     // #### Paths
     paths: {
       content: join(__dirname, '/content/'),
-      theme: join(__dirname, '/content/themes/casper/'),
+      theme: join(__dirname, '/content/themes/'),
     },
 
     // #### Keys

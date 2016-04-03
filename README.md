@@ -26,3 +26,7 @@ https://github.com/evert0n/koa-cors
 
 jshttp/http-assert: assert with status codes
 https://github.com/jshttp/http-assert
+
+
+
+https://www.npmjs.com/package/es6-promisify

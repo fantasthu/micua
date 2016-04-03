@@ -49,7 +49,7 @@ export default (app, options) => {
   middlewares.push(session(app));
 
   // 视图模板引擎
-  middlewares.push(views(options.paths.theme));
+  middlewares.push(views(options));
 
   // 自动化路由
   middlewares.push(routes());
