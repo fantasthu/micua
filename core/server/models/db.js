@@ -1,16 +1,8 @@
-import Sequelize from 'sequelize';
-import config from '../../config';
+import knex from 'knex';
+import bookshelf from 'bookshelf';
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: 'localhost',
-  dialect: 'mysql' | 'mariadb' | 'sqlite' | 'postgres' | 'mssql',
+import config from '../../../config';
 
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
+const options = config[process.env.NODE_ENV].database;
 
-  // SQLite only
-  storage: 'path/to/database.sqlite'
-});
+export default bookshelf(knex(options));

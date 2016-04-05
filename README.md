@@ -30,3 +30,7 @@ https://github.com/jshttp/http-assert
 
 
 https://www.npmjs.com/package/es6-promisify
+
+
+
+"sequelize": "^3.20.0",

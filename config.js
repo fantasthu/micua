@@ -28,7 +28,7 @@ const config = {
       connection: {
         filename: join(__dirname, '/content/data/micua-dev.db')
       },
-      debug: false
+      debug: true
     },
 
     // #### Server
@@ -75,27 +75,51 @@ const config = {
   // ### Testing
   // Used when developing micua to run tests and check the health of micua
   // Uses a different port number
-  testing: {
-    url: 'http://127.0.0.1:2369',
-    database: {
-      client: 'sqlite3',
-      connection: {
-        filename: join(__dirname, '/content/data/micua-test.db')
-      },
-      pool: {
-        afterCreate: function(conn, done) {
-          conn.run('PRAGMA synchronous=OFF;' +
-            'PRAGMA journal_mode=MEMORY;' +
-            'PRAGMA locking_mode=EXCLUSIVE;' +
-            'BEGIN EXCLUSIVE; COMMIT;', done);
+  test: {
+    url: 'http://localhost:2080',
+
+    // #### Email
+    mail: {
+      transport: 'SMTP',
+      options: {
+        "host": "smtp.exmail.qq.com",
+        "port": 25,
+        "secure": false,
+        "name": "Hello Micua",
+        "auth": {
+          "user": "t1@wedn.net",
+          "pass": "2014@itcast"
         }
       }
     },
+
+    // #### Database
+    database: {
+      client: 'sqlite3',
+      connection: {
+        filename: join(__dirname, '/content/data/micua-dev.db')
+      },
+      debug: true
+    },
+
+    // #### Server
+    // Can be host & port (default), or socket
     server: {
       host: '127.0.0.1',
-      port: '2369'
+      port: '2080'
     },
-    logging: false
+
+    // #### Paths
+    paths: {
+      content: join(__dirname, '/content/'),
+      theme: join(__dirname, '/content/themes/'),
+    },
+
+    // #### Keys
+    keys: {
+      session: 'micua',
+      cookie: 'micua'
+    }
   },
 
   // ### Testing MySQL
