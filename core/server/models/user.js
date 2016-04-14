@@ -5,10 +5,7 @@ import {
 
 
 var User = db.Model.extend({
-  tableName: 'users',
-  // posts: function() {
-  //   return this.hasMany(Posts);
-  // }
+  tableName: 'users'
 });
 
 export default User;
