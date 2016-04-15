@@ -3,6 +3,6 @@ import bookshelf from 'bookshelf';
 
 import config from '../../../config';
 
-const options = config[process.env.NODE_ENV].database;
+const options = config.database;
 
 export default bookshelf(knex(options));

@@ -1,3 +1,4 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 import {
   join
 } from 'path';
@@ -24,11 +25,19 @@ const config = {
 
     // #### Database
     database: {
-      client: 'sqlite3',
+      // client: 'sqlite3',
+      // connection: {
+      //   filename: join(__dirname, '/content/data/micua-dev.db')
+      // },
+      // debug: true
+      client: 'mysql',
       connection: {
-        filename: join(__dirname, '/content/data/micua-dev.db')
-      },
-      debug: true
+        host: '127.0.0.1',
+        user: 'root',
+        password: 'wanglei',
+        database: 'test',
+        charset: 'utf8'
+      }
     },
 
     // #### Server
@@ -144,4 +153,4 @@ const config = {
   }
 };
 
-export default config;
+export default config[process.env.NODE_ENV];
